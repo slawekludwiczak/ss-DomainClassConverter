@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Edit</title>
+</head>
+<body>
+    <h1>Edit user</h1>
+    <p>User can edit only username and password</p>
+    <form method="post" th:action="@{/user/update}" th:object="${user}">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <label>
+                Username:
+                <input th:field="*{username}">
+            </label>
+        </div>
+        <div>
+            <label>
+                Password
+                <input th:field="*{password}">
+            </label>
+        </div>
+<!-- Attacker can inject this code in developer tools in the browser -->
+<!--        <div>-->
+<!--            <label>-->
+<!--                Role:-->
+<!--                <select name="role">-->
+<!--                    <option value="1" selected>ADMIN</option>-->
+<!--                    <option value="2">USER</option>-->
+<!--                </select>-->
+<!--            </label>-->
+<!--        </div>-->
+        <button type="submit">Update profile</button>
+    </form>
+</body>
+</html>

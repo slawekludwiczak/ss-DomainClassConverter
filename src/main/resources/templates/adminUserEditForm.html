@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - User Edit</title>
+</head>
+<body>
+    <h1>Edit user</h1>
+    <p>User can edit only username and password</p>
+    <form method="post" th:action="@{/user/update}" th:object="${user}">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <label>
+                Username:
+                <input th:field="*{username}">
+            </label>
+        </div>
+        <div>
+            <label>
+                Password
+                <input th:field="*{password}">
+            </label>
+        </div>
+        <div>
+            <label>
+                Role:
+                <select th:field="*{role}">
+                    <option th:each="role: ${roles}" th:text="${role.name}" th:value="${role.id}">SOME_ROLE</option>
+                </select>
+            </label>
+        </div>
+        <button type="submit">Update profile</button>
+    </form>
+</body>
+</html>

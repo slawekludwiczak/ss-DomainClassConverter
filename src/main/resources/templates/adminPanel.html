@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+<h1>This page is accessible only for administrators</h1>
+<p>Admin can edit users data and their roles</p>
+<p>All Users</p>
+<ul>
+    <li th:each="user: ${users}">
+        <a th:href="@{|/admin/edit-user/${user.id}|}"
+           th:text="${user.getUsername()}">Some User</a>
+    </li>
+</ul>
+</body>
+</html>
