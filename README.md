@@ -7,7 +7,7 @@ users can edit only his username and password in user panel: http://localhost:80
 admins can edit username, password and user roles in admin panel: http://localhost:8080/admin/edit-user/1
 
 When domain objects are used in presentation layer as DTO's and update action in service layer (UserService) is implemented such way, 
-that not-null fields are updated, the user can modify the form and send additional field with role id.
+that not-null fields are updated, the user can perform unwanted actions by modifying the form source code in the browser.
 Because Spring uses DomainClassConverter by default, user can edit  his roles, by setting only role_id.
 
 To reproduce attack:
@@ -15,7 +15,7 @@ To reproduce attack:
 2. Go to http://localhost:8080/user/edit
 3. Modify the page source in browser dev tools as it is shown in userEditForm.html
 4. Select ADMIN role
-5. Send POST request:
+5. Send Form with POST request:
 ```
 POST /user/update
 id:         1
