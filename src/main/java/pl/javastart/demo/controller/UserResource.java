@@ -20,8 +20,8 @@ public class UserResource {
         return userService.findAll();
     }
 
-    @PostMapping("/users")
-    ResponseEntity<?> save(ApplicationUser user) {
+    @PutMapping("/users/{id}")
+    ResponseEntity<?> save(@RequestBody ApplicationUser user) {
         userService.partialUpdate(user);
         return ResponseEntity.accepted().build();
     }

@@ -10,11 +10,7 @@ public class ApplicationUser {
     private String username;
     private String password;
     @ManyToOne
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
-    )
+    @JoinColumn(name = "role_id")
     private Role role;
 
     public Long getId() {
